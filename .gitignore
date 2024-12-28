@@ -1,5 +1,8 @@
-# Godot 4+ specific ignores
+# IDE special folders exclude
+.vscode/
+.vs/
 .godot/
+.idea/
 
 # Godot-specific ignores
 .import/
