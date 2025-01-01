@@ -2,26 +2,27 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgkhd2xi8qdcu"
-path="res://.godot/imported/Sliding_003.png-230fb6f2a798f5add307f9ee76f3b2d7.ctex"
+uid="uid://6ivtvboaua4a"
+path.s3tc="res://.godot/imported/Sliding_005.png-a8ed0832fc0f81d8c6ca1010c64b40a5.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Characters/Player/Slide/Sliding_003.png"
-dest_files=["res://.godot/imported/Sliding_003.png-230fb6f2a798f5add307f9ee76f3b2d7.ctex"]
+source_file="res://Assets/Sprites/Characters/Player/Dash/Sliding_005.png"
+dest_files=["res://.godot/imported/Sliding_005.png-a8ed0832fc0f81d8c6ca1010c64b40a5.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +32,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0
