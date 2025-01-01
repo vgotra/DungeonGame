@@ -19,6 +19,12 @@ config/icon="uid://85tts6w1lndq"
 
 project/assembly_name="DungeonGame"
 
+[editor]
+
+movie_writer/disable_vsync=true
+movie_writer/fps=300
+naming/scene_name_casing=1
+
 [input]
 
 MoveForward={
