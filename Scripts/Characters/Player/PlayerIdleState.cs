@@ -1,33 +1,17 @@
-public sealed partial class PlayerIdleState : Node
+public sealed partial class PlayerIdleState : PlayerStateBase
 {
-    private Player _characterNode;
+    protected override string AnimationName => Constants.Animation.Idle;
     
-    public override void _Ready()
+    protected override void StatePhysicsProcess(double delta)
     {
-        _characterNode = GetOwner<Player>();
-        SetPhysicsProcess(false); //? Can it be improved?
+        CharacterNode.Velocity = Vector3.Zero; // Improve this 
+        if (CharacterNode.Direction != Vector2.Zero) 
+            CharacterNode.StateMachine.SwitchState<PlayerMoveState>();
     }
 
-    public override void _PhysicsProcess(double delta)
+    public override void _Input(InputEvent @event)
     {
-        GD.Print("Idle State Physics Process");
-        
-        if (_characterNode.Direction != Vector2.Zero) 
-            _characterNode.StateMachine.SwitchState<PlayerMoveState>();
-    }
-    
-    public override void _Notification(int what)
-    {
-        base._Notification(what);
-
-        if (what == Constants.Notification.EnterState)
-        {
-            _characterNode.AnimationPlayerNode.Play(Constants.Animation.Idle);
-            SetPhysicsProcess(true);
-        }
-        else if (what == Constants.Notification.ExitState)
-        {
-            SetPhysicsProcess(false);
-        }
+        if(Input.IsActionJustPressed((Constants.Input.Dash)))
+            CharacterNode.StateMachine.SwitchState<PlayerDashState>();
     }
 }

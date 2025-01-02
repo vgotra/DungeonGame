@@ -1,32 +1,26 @@
-public sealed partial class PlayerMoveState : Node
+public sealed partial class PlayerMoveState : PlayerStateBase
 {
-    private Player _characterNode;
+    protected override string AnimationName => Constants.Animation.Move;
     
-    public override void _Ready()
+    [Export] private float _moveSpeed = 5;
+
+    protected override void StatePhysicsProcess(double delta)
     {
-        _characterNode = GetOwner<Player>();
-        SetPhysicsProcess(false); //? Can it be improved?
+        if (CharacterNode.Direction == Vector2.Zero)
+        {
+            CharacterNode.StateMachine.SwitchState<PlayerIdleState>();
+            return;
+        }
+
+        //CharacterNode.Velocity = new Vector3(CharacterNode.Direction.X, 0, CharacterNode.Direction.Y) * CharacterNode.MovementSpeed;
+        CharacterNode.UpdateVelocity(_moveSpeed);
+        CharacterNode.Flip();
+        CharacterNode.MoveAndSlide();
     }
 
-    public override void _PhysicsProcess(double delta)
+    public override void _Input(InputEvent @event)
     {
-        GD.Print("Move State Physics Process");
-        
-        if (_characterNode.Direction == Vector2.Zero) 
-            _characterNode.StateMachine.SwitchState<PlayerIdleState>();
-    }
-    
-    public override void _Notification(int what)
-    {
-        base._Notification(what);
-        if (what == Constants.Notification.EnterState)
-        {
-            _characterNode.AnimationPlayerNode.Play(Constants.Animation.Move);
-            SetPhysicsProcess(true);
-        }
-        else if (what == Constants.Notification.ExitState)
-        {
-            SetPhysicsProcess(false);
-        }
+        if (Input.IsActionJustPressed((Constants.Input.Dash)))
+            CharacterNode.StateMachine.SwitchState<PlayerDashState>();
     }
 }

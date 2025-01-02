@@ -1,11 +1,14 @@
-public partial class StateMachine : Node
+public sealed partial class PlayerStateMachine : Node
 {
     [Export] private Node _currentState;
     [Export] private Node[] _states;
     
     public override void _Ready()
     {
-        if (_currentState == null || _states.Length == 0) 
+        ArgumentNullException.ThrowIfNull(_currentState);
+        ArgumentNullException.ThrowIfNull(_states);
+        
+        if (_states.Length == 0) 
             throw new ApplicationException("StateMachine is not properly configured");
         
         _currentState.Notification(Constants.Notification.EnterState);
