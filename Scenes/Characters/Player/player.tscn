@@ -39,7 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://dgkhd2xi8qdcu" path="res://Assets/Sprites/Characters/Player/Dash/Sliding_003.png" id="35_8uivy"]
 [ext_resource type="Texture2D" uid="uid://d02mwh37ht2nf" path="res://Assets/Sprites/Characters/Player/Dash/Sliding_004.png" id="36_yfcdn"]
 [ext_resource type="Texture2D" uid="uid://6ivtvboaua4a" path="res://Assets/Sprites/Characters/Player/Dash/Sliding_005.png" id="37_68bc3"]
-[ext_resource type="Script" path="res://Scripts/Characters/Player/PlayerStateMachine.cs" id="38_uvgfe"]
+[ext_resource type="Script" uid="uid://bhq6q85ps8k1j" path="res://Scripts/Characters/Player/PlayerStateMachine.cs" id="38_uvgfe"]
 [ext_resource type="Script" uid="uid://bxv3iiqq6js7v" path="res://Scripts/Characters/Player/PlayerDashState.cs" id="40_uvgfe"]
 
 [sub_resource type="Animation" id="Animation_mf3wh"]
