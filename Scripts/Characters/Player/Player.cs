@@ -1,20 +1,20 @@
 public sealed partial class Player : CharacterBody3D
 {
-    [ExportGroup("Required Settings")] 
+    [ExportGroup("Required Settings")]
     [Export] public AnimationPlayer AnimationPlayerNode { get; private set; }
     [Export] public Sprite3D Sprite3DNode { get; private set; }
     [Export] private bool _isInverseMovement = false;
     [Export] public PlayerStateMachine StateMachine { get; private set; }
 
     public Vector2 Direction = Vector2.Zero;
-    
+
     public override void _Ready()
     {
         ArgumentNullException.ThrowIfNull(AnimationPlayerNode);
         ArgumentNullException.ThrowIfNull(Sprite3DNode);
         ArgumentNullException.ThrowIfNull(StateMachine);
     }
-    
+
     public override void _Input(InputEvent @event)
     {
         Direction = _isInverseMovement
@@ -29,12 +29,12 @@ public sealed partial class Player : CharacterBody3D
             Velocity = Sprite3DNode.FlipH ? Vector3.Left : Vector3.Right;
         Velocity *= movementSpeed;
     }
-    
+
     public void Flip()
     {
         if (Velocity.X == 0)
             return; // No need to flip if we are not moving horizontally
-        
+
         Sprite3DNode.FlipH = Velocity.X < 0; // Flip sprite horizontally if we are moving left
     }
 }

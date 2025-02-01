@@ -1,7 +1,7 @@
-﻿public abstract partial class PlayerStateBase : Node
+public abstract partial class PlayerStateBase : Node
 {
     protected Player CharacterNode;
-    
+
     protected virtual string AnimationName => Constants.Animation.None;
 
     public override void _Ready()
@@ -19,13 +19,13 @@
     public override void _PhysicsProcess(double delta) => StatePhysicsProcess(delta);
 
     protected virtual void StatePhysicsProcess(double delta) { }
-    
+
     public override void _Notification(int what)
     {
         base._Notification(what);
         Notification(what);
     }
-    
+
     protected virtual void Notification(int what)
     {
         if (what == Constants.Notification.EnterState)

@@ -1,7 +1,7 @@
 public sealed partial class PlayerMoveState : PlayerStateBase
 {
     protected override string AnimationName => Constants.Animation.Move;
-    
+
     [Export] private float _moveSpeed = 5;
 
     protected override void StatePhysicsProcess(double delta)
