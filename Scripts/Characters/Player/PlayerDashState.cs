@@ -1,3 +1,7 @@
+using DungeonGame.Scripts.Common;
+
+namespace DungeonGame.Scripts.Characters.Player;
+
 public sealed partial class PlayerDashState : PlayerStateBase
 {
     protected override string AnimationName => Constants.Animation.Dash;
@@ -15,20 +19,12 @@ public sealed partial class PlayerDashState : PlayerStateBase
         CharacterNode.StateMachine.SwitchState<PlayerIdleState>();
     }
 
-    protected override void Notification(int what)
+    protected override void ProcessNotification(int what)
     {
-        //? Also, what if move forward/backward? 
         if (what == Constants.Notification.EnterState)
         {
             CharacterNode.AnimationPlayerNode.Play(AnimationName);
             CharacterNode.UpdateVelocity(_dashSpeed);
-            //! for testing, delete this later
-            /*  
-            CharacterNode.Velocity = new Vector3(CharacterNode.Direction.X, 0, CharacterNode.Direction.Y);
-            if (CharacterNode.Velocity == Vector3.Zero)
-                 CharacterNode.Velocity = CharacterNode.Sprite3DNode.FlipH ? Vector3.Left : Vector3.Right;
-            CharacterNode.Velocity *= _dashSpeed;
-            */
             _dashTimerNode.Start();
         }
     }

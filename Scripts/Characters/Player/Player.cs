@@ -1,9 +1,13 @@
+using DungeonGame.Scripts.Common;
+
+namespace DungeonGame.Scripts.Characters.Player;
+
 public sealed partial class Player : CharacterBody3D
 {
     [ExportGroup("Required Settings")]
+    [Export] private Sprite3D Sprite3DNode { get; set; }
     [Export] public AnimationPlayer AnimationPlayerNode { get; private set; }
-    [Export] public Sprite3D Sprite3DNode { get; private set; }
-    [Export] private bool _isInverseMovement = false;
+    [Export] private bool _isInverseMovement;
     [Export] public PlayerStateMachine StateMachine { get; private set; }
 
     public Vector2 Direction = Vector2.Zero;

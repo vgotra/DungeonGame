@@ -1,3 +1,7 @@
+using DungeonGame.Scripts.Common;
+
+namespace DungeonGame.Scripts.Characters.Player;
+
 public abstract partial class PlayerStateBase : Node
 {
     protected Player CharacterNode;
@@ -23,10 +27,10 @@ public abstract partial class PlayerStateBase : Node
     public override void _Notification(int what)
     {
         base._Notification(what);
-        Notification(what);
+        ProcessNotification(what);
     }
 
-    protected virtual void Notification(int what)
+    protected virtual void ProcessNotification(int what)
     {
         if (what == Constants.Notification.EnterState)
         {

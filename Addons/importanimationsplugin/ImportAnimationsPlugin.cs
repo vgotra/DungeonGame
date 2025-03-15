@@ -1,5 +1,7 @@
 #if TOOLS
 
+namespace DungeonGame.Addons.importanimationsplugin;
+
 [Tool]
 public partial class ImportAnimationsPlugin : EditorPlugin
 {
@@ -43,17 +45,17 @@ public partial class ImportAnimationsPlugin : EditorPlugin
         }
 
         /* Check this later
-		var animation = new Animation { LoopMode = Animation.LoopModeEnum.Linear };
-		//! Animation tracks, etc
-		//animationPlayer.AddAnimation("GeneratedAnimation", animation);
-		animation.TrackSetPath(animation.AddTrack(Animation.TrackType.Value), "texture");
+    var animation = new Animation { LoopMode = Animation.LoopModeEnum.Linear };
+    //! Animation tracks, etc
+    //animationPlayer.AddAnimation("GeneratedAnimation", animation);
+    animation.TrackSetPath(animation.AddTrack(Animation.TrackType.Value), "texture");
 
-		var timeStep = 1.0f / files.Length;
-		for (var i = 0; i < files.Length; i++)
-		{
-			animation.TrackInsertKey(i, i * timeStep, GD.Load<Texture>(files[i]));
-		}
-		*/
+    var timeStep = 1.0f / files.Length;
+    for (var i = 0; i < files.Length; i++)
+    {
+        animation.TrackInsertKey(i, i * timeStep, GD.Load<Texture>(files[i]));
+    }
+    */
     }
 }
 

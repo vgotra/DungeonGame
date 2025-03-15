@@ -1,3 +1,7 @@
+using DungeonGame.Scripts.Common;
+
+namespace DungeonGame.Scripts.Characters.Player;
+
 public sealed partial class PlayerStateMachine : Node
 {
     [Export] private Node _currentState;

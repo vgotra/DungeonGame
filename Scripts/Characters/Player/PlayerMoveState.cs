@@ -1,3 +1,7 @@
+using DungeonGame.Scripts.Common;
+
+namespace DungeonGame.Scripts.Characters.Player;
+
 public sealed partial class PlayerMoveState : PlayerStateBase
 {
     protected override string AnimationName => Constants.Animation.Move;

@@ -1,3 +1,5 @@
+namespace DungeonGame.Scripts.Common;
+
 public static partial class Constants
 {
     public static class Animation
