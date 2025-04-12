@@ -124,6 +124,7 @@ AnimationPlayerNode = NodePath("AnimationPlayer")
 StateMachine = NodePath("PlayerStateMachine")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+pixel_size = 0.0025
 texture = ExtResource("1_27cb7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
