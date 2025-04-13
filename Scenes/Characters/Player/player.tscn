@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://1b6qxpvwnte3"]
+[gd_scene load_steps=48 format=3 uid="uid://1b6qxpvwnte3"]
 
 [ext_resource type="Texture2D" uid="uid://h6brhc04uegv" path="res://Assets/Sprites/Characters/Player/Idle/Idle Blinking_000.png" id="1_27cb7"]
 [ext_resource type="Script" uid="uid://doeyhg2q0lio2" path="res://Scripts/Characters/Player/Player.cs" id="1_eiaiy"]
@@ -117,7 +117,14 @@ _data = {
 &"RESET": SubResource("Animation_2iqoh")
 }
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uvgfe"]
+radius = 0.561229
+height = 1.51577
+
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("Sprite3DNode", "AnimationPlayerNode", "StateMachine")]
+collision_layer = 2
+floor_max_angle = 1.55334
+floor_snap_length = 0.2
 script = ExtResource("1_eiaiy")
 Sprite3DNode = NodePath("Sprite3D")
 AnimationPlayerNode = NodePath("AnimationPlayer")
@@ -150,3 +157,6 @@ _dashTimerNode = NodePath("DashTimer")
 [node name="DashTimer" type="Timer" parent="PlayerStateMachine/PlayerDashState"]
 wait_time = 0.4
 one_shot = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_uvgfe")
