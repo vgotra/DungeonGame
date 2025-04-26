@@ -118,8 +118,6 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uvgfe"]
-radius = 0.561229
-height = 1.51577
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("Sprite3DNode", "AnimationPlayerNode", "StateMachine")]
 collision_layer = 2
