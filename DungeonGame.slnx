@@ -1,8 +1,0 @@
-﻿<Solution>
-  <Configurations>
-    <BuildType Name="Debug" />
-    <BuildType Name="ExportDebug" />
-    <BuildType Name="ExportRelease" />
-  </Configurations>
-  <Project Path="DungeonGame.csproj" Type="Classic C#" />
-</Solution>
