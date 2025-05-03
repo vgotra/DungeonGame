@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://p4rf5qs5snm4"]
 
 [ext_resource type="Script" uid="uid://bglx4cum8skc7" path="res://Scripts/Levels/Main.cs" id="1_s0gyx"]
-[ext_resource type="PackedScene" uid="uid://1b6qxpvwnte3" path="res://Scenes/Characters/Player/player.tscn" id="2_yjsus"]
+[ext_resource type="PackedScene" uid="uid://1b6qxpvwnte3" path="res://Scenes/Characters/Players/player.tscn" id="2_yjsus"]
 [ext_resource type="MeshLibrary" uid="uid://d3ouo6xh05u1k" path="res://Resources/tiles.tres" id="3_u872a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u872a"]
