@@ -1,4 +1,4 @@
-class_name Inputs # refactor later
+class_name Inputs
 
 const MoveLeft := StringName("MoveLeft")
 const MoveRight := StringName("MoveRight")

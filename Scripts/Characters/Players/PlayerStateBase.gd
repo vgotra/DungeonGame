@@ -3,11 +3,11 @@ class_name PlayerStateBase extends Node
 var character_node: Player = null
 
 
-func get_state() -> States.State: 
+func get_state() -> States.State:
 	return States.State.Idle
 
 
-func get_animation_name() -> String: 
+func get_animation_name() -> String:
 	return Animations.None
 
 
@@ -25,7 +25,7 @@ func _physics_process(delta):
 	state_physics_process(delta)
 
 
-func state_physics_process(delta):
+func state_physics_process(_delta):
 	pass
 
 

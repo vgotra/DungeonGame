@@ -3,7 +3,7 @@ class_name PlayerDashState extends PlayerStateBase
 @export var dash_timer_node: Timer
 @export var dash_speed: float = 10.0
 
-func get_state() -> States.State: 
+func get_state() -> States.State:
 	return States.State.Dash
 
 
@@ -26,6 +26,6 @@ func process_notification(what):
 		dash_timer_node.start()
 
 
-func state_physics_process(delta):
+func state_physics_process(_delta):
 	character_node.flip()
 	character_node.move_and_slide()

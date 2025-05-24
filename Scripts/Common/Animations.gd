@@ -1,4 +1,4 @@
-class_name Animations # refactor later
+class_name Animations
 
 const None := StringName("")
 const Idle := StringName("Idle")

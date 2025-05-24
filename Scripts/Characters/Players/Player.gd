@@ -17,7 +17,7 @@ func _ready():
 		push_error("state_machine is null")
 
 
-func _input(event):
+func _input(_event):
 	if is_inverse_movement:
 		direction = Input.get_vector(Inputs.MoveLeft, Inputs.MoveRight, Inputs.MoveBackward, Inputs.MoveForward)
 	else:
@@ -27,7 +27,7 @@ func _input(event):
 func update_velocity(movement_speed: float) -> void:
 	velocity = Vector3(direction.x, 0, direction.y)
 	if velocity == Vector3.ZERO:
-		velocity = sprite_3d_node.flip_h if Vector3.LEFT else Vector3.RIGHT
+		velocity = Vector3.LEFT if sprite_3d_node.flip_h else Vector3.RIGHT
 	velocity *= movement_speed
 
 
