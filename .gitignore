@@ -1,8 +1,8 @@
 # IDE special folders exclude
-.vscode/
-.vs/
-.godot/
-.idea/
+**/.vscode/
+**/.vs/
+**/.godot/
+**/.idea/
 
 # Godot-specific ignores
 .import/

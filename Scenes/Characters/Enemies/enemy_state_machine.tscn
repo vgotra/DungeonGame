@@ -1,7 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dcw6qo4ahexq"]
 
-[ext_resource type="Script" uid="uid://bjwaf7e3dxs1o" path="res://Scripts/Characters/Enemies/EnemyStateMachine.cs" id="1_xcfjf"]
+[ext_resource type="Script" uid="uid://by6ipreajb5l3" path="res://Scripts/Characters/Enemies/EnemyStateMachine.gd" id="1_fpibo"]
 
-[node name="EnemyStateMachine" type="Node" node_paths=PackedStringArray("_states")]
-script = ExtResource("1_xcfjf")
-_states = []
+[node name="EnemyStateMachine" type="Node"]
+script = ExtResource("1_fpibo")
