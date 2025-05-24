@@ -1,4 +1,4 @@
-extends Node
+class_name  Inputs
 
 const MoveLeft := StringName("MoveLeft")
 const MoveRight := StringName("MoveRight")

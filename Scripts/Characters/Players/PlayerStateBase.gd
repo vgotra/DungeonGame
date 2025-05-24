@@ -1,9 +1,9 @@
-extends Node
-
-const Player = preload("res://Scripts/Characters/Players/Player.gd")
+class_name PlayerStateBase extends Node
 
 var character_node: Player = null
-var animation_name: StringName = Animations.None
+
+func get_animation_name() -> String:
+	return Animations.None
 
 
 func _ready():
@@ -30,7 +30,7 @@ func _notification(what):
 
 func process_notification(what):
 	if what == Notifications.EnterState:
-		character_node.animation_player_node.play(animation_name)
+		character_node.animation_player_node.play(get_animation_name())
 		set_physics_process(true)
 		set_process_input(true)
 	elif what == Notifications.ExitState:

@@ -15,12 +15,6 @@ run/main_scene="uid://p4rf5qs5snm4"
 config/features=PackedStringArray("4.4", "C#", "Mobile")
 config/icon="uid://85tts6w1lndq"
 
-[autoload]
-
-Animations="*res://Scripts/Common/Constants/Animations.gd"
-Inputs="*res://Scripts/Common/Constants/Inputs.gd"
-Notifications="*res://Scripts/Common/Constants/Notifications.gd"
-
 [display]
 
 window/vsync/vsync_mode=0

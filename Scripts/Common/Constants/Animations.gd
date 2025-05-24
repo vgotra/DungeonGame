@@ -1,4 +1,4 @@
-extends Node
+class_name Animations
 
 const None := StringName("")
 const Idle := StringName("Idle")

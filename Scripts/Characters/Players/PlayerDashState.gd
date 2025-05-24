@@ -1,9 +1,10 @@
-extends "res://Scripts/Characters/Players/PlayerStateBase.gd"
-
-const PlayerIdleState = preload("res://Scripts/Characters/Players/PlayerIdleState.gd")
+class_name PlayerDashState extends PlayerStateBase
 
 @export var dash_timer_node: Timer
 @export var dash_speed: float = 10.0
+
+func get_animation_name() -> String:
+	return Animations.Dash
 
 
 func state_ready():
@@ -16,7 +17,7 @@ func _on_dash_timeout():
 
 func process_notification(what):
 	if what == Notifications.EnterState:
-		character_node.animation_player_node.play(animation_name)
+		character_node.animation_player_node.play(get_animation_name())
 		character_node.update_velocity(dash_speed)
 		dash_timer_node.start()
 

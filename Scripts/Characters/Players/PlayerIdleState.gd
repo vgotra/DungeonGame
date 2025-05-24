@@ -1,7 +1,8 @@
-extends "res://Scripts/Characters/Players/PlayerStateBase.gd"
+class_name PlayerIdleState extends PlayerStateBase
 
-const PlayerMoveState = preload("res://Scripts/Characters/Players/PlayerMoveState.gd")
-const PlayerDashState = preload("res://Scripts/Characters/Players/PlayerDashState.gd")
+func get_animation_name() -> String:
+	return Animations.Idle
+
 
 func state_physics_process(delta):
 	character_node.velocity = Vector3.ZERO

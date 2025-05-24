@@ -1,4 +1,4 @@
-extends CharacterBody3D
+class_name Player extends CharacterBody3D
 
 @export var sprite_3d_node: Sprite3D
 @export var animation_player_node: AnimationPlayer

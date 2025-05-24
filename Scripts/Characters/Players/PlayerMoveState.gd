@@ -1,9 +1,9 @@
-extends "res://Scripts/Characters/Players/PlayerStateBase.gd"
-
-const PlayerIdleState = preload("res://Scripts/Characters/Players/PlayerIdleState.gd")
-const PlayerDashState = preload("res://Scripts/Characters/Players/PlayerDashState.gd")
+class_name PlayerMoveState extends PlayerStateBase
 
 @export var _move_speed: float = 5.0
+
+func get_animation_name() -> String:
+	return Animations.Move
 
 
 func state_physics_process(delta):

@@ -1,7 +1,7 @@
-extends Node
+class_name PlayerStateMachine extends Node
 
-@export var _current_state: Node
-@export var _states: Array[Node]
+@export var _current_state: PlayerStateBase
+@export var _states: Array[PlayerStateBase]
 
 
 func _ready():
@@ -13,9 +13,9 @@ func _ready():
 	_current_state.notification(Notifications.EnterState)
 
 
-func switch_state(target_type):
+func switch_state(target_class):
 	for state in _states:
-		if state.get_class() == target_type:
+		if state.get_class() == target_class.get_class(): # check this
 			_current_state.notification(Notifications.ExitState)
 			_current_state = state
 			_current_state.notification(Notifications.EnterState)
