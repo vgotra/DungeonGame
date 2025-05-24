@@ -1,0 +1,38 @@
+extends Node
+
+const Player = preload("res://Scripts/Characters/Players/Player.gd")
+
+var character_node: Player = null
+var animation_name: StringName = Animations.None
+
+
+func _ready():
+	character_node = owner as Player
+	state_ready()
+
+
+func state_ready():
+	set_physics_process(false) # Can be improved if needed
+	set_process_input(false)
+
+
+func _physics_process(delta):
+	state_physics_process(delta)
+
+
+func state_physics_process(delta):
+	pass
+
+
+func _notification(what):
+	process_notification(what)
+
+
+func process_notification(what):
+	if what == Notifications.EnterState:
+		character_node.animation_player_node.play(animation_name)
+		set_physics_process(true)
+		set_process_input(true)
+	elif what == Notifications.ExitState:
+		set_physics_process(false)
+		set_process_input(false)
