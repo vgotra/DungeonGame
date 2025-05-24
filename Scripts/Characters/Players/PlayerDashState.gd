@@ -3,6 +3,10 @@ class_name PlayerDashState extends PlayerStateBase
 @export var dash_timer_node: Timer
 @export var dash_speed: float = 10.0
 
+func get_state() -> States.State: 
+	return States.State.Dash
+
+
 func get_animation_name() -> String:
 	return Animations.Dash
 
@@ -12,7 +16,7 @@ func state_ready():
 
 
 func _on_dash_timeout():
-	character_node.state_machine.switch_state(PlayerIdleState)
+	character_node.state_machine.switch_state(States.State.Idle)
 
 
 func process_notification(what):

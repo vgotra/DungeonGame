@@ -148,10 +148,12 @@ script = ExtResource("40_mrrv0")
 
 [node name="PlayerMoveState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("41_mrrv0")
+_move_speed = null
 
 [node name="PlayerDashState" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("dash_timer_node")]
 script = ExtResource("42_mrrv0")
 dash_timer_node = NodePath("DashTimer")
+dash_speed = null
 
 [node name="DashTimer" type="Timer" parent="PlayerStateMachine/PlayerDashState"]
 wait_time = 0.4

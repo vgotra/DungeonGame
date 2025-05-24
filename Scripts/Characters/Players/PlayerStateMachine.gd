@@ -13,9 +13,9 @@ func _ready():
 	_current_state.notification(Notifications.EnterState)
 
 
-func switch_state(target_class):
+func switch_state(state_value: States.State):
 	for state in _states:
-		if state.get_class() == target_class.get_class(): # check this
+		if state.get_state() == state_value:
 			_current_state.notification(Notifications.ExitState)
 			_current_state = state
 			_current_state.notification(Notifications.EnterState)
