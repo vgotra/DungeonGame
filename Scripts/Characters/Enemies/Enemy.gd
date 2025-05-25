@@ -1,20 +1,20 @@
-class_name Player extends CharacterBody3D
+class_name Enemy extends CharacterBody3D
 
 @export var sprite_3d_node: Sprite3D
-@export var animation_player_node: AnimationPlayer
+@export var animation_enemy_node: AnimationPlayer
 @export var is_inverse_movement: bool = false
-@export var state_machine: PlayerStateMachine
+@export var enemy_state_machine: EnemyStateMachine
 
 var direction: Vector2 = Vector2.ZERO
 
 
 func _ready():
-	if animation_player_node == null:
-		push_error("animation_player_node is null")
+	if animation_enemy_node == null:
+		push_error("animation_enemy_node is null")
 	if sprite_3d_node == null:
 		push_error("sprite_3d_node is null")
-	if state_machine == null:
-		push_error("state_machine is null")
+	if enemy_state_machine == null:
+		push_error("enemystate_machine is null")
 
 
 func _input(_event):

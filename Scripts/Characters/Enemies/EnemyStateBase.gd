@@ -1,6 +1,6 @@
-class_name PlayerStateBase extends Node
+class_name EnemyStateBase extends Node
 
-var character_node: Player = null
+var character_node: Enemy = null
 
 
 func get_state() -> Constants.States:
@@ -12,7 +12,7 @@ func get_animation_name() -> String:
 
 
 func _ready():
-	character_node = owner as Player
+	character_node = owner as Enemy
 	state_ready()
 
 
@@ -35,7 +35,7 @@ func _notification(what):
 
 func process_notification(what):
 	if what == Constants.Notifications.EnterState:
-		character_node.animation_player_node.play(get_animation_name())
+		character_node.animation_enemy_node.play(get_animation_name())
 		set_physics_process(true)
 		set_process_input(true)
 	elif what == Constants.Notifications.ExitState:
