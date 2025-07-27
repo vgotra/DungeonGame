@@ -6,26 +6,21 @@ class_name PlayerDashState extends PlayerStateBase
 func get_state() -> Constants.States:
 	return Constants.States.Dash
 
-
 func get_animation_name() -> String:
 	return Constants.Animations.Dash
 
-
-func state_ready():
+func set_state_ready(_state: bool):
 	dash_timer_node.timeout.connect(_on_dash_timeout)
 
-
 func _on_dash_timeout():
-	character_node.state_machine.switch_state(Constants.States.Idle)
+	character_node.character_state_machine.switch_state(Constants.States.Idle)
 
-
-func process_notification(what):
+func process_notification(what: int):
 	if what == Constants.Notifications.EnterState:
-		character_node.animation_player_node.play(get_animation_name())
+		character_node.character_animation_node.play(get_animation_name())
 		character_node.update_velocity(dash_speed)
 		dash_timer_node.start()
 
-
-func state_physics_process(_delta):
+func state_physics_process(_delta: float):
 	character_node.flip()
 	character_node.move_and_slide()

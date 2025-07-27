@@ -119,15 +119,15 @@ _data = {
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uvgfe"]
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("sprite_3d_node", "animation_player_node", "state_machine")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("sprite_3d_node", "character_animation_node", "character_state_machine")]
 editor_description = "Check additional settings, it can be helpful"
 collision_layer = 2
 floor_max_angle = 1.55334
 floor_snap_length = 0.2
 script = ExtResource("1_gcmt0")
 sprite_3d_node = NodePath("Sprite3D")
-animation_player_node = NodePath("AnimationPlayer")
-state_machine = NodePath("PlayerStateMachine")
+character_animation_node = NodePath("AnimationPlayer")
+character_state_machine = NodePath("PlayerStateMachine")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 pixel_size = 0.0025
@@ -153,7 +153,6 @@ _move_speed = null
 [node name="PlayerDashState" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("dash_timer_node")]
 script = ExtResource("42_mrrv0")
 dash_timer_node = NodePath("DashTimer")
-dash_speed = null
 
 [node name="DashTimer" type="Timer" parent="PlayerStateMachine/PlayerDashState"]
 wait_time = 0.4

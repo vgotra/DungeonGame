@@ -1,5 +1,6 @@
-[gd_scene load_steps=108 format=3 uid="uid://de7usddda88s0"]
+[gd_scene load_steps=111 format=3 uid="uid://de7usddda88s0"]
 
+[ext_resource type="Script" uid="uid://bixps4ec42ilw" path="res://Scripts/Characters/Enemies/Enemy.gd" id="1_bfsix"]
 [ext_resource type="Texture2D" uid="uid://7rku125w21fe" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_001.png" id="1_wxnum"]
 [ext_resource type="Texture2D" uid="uid://ca7msb44w61et" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_000.png" id="2_cjlqx"]
 [ext_resource type="Texture2D" uid="uid://b1fuaq5xxjifo" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_002.png" id="3_nq1uu"]
@@ -99,6 +100,8 @@
 [ext_resource type="Texture2D" uid="uid://bt8l3u4t7l47p" path="res://Assets/Sprites/Characters/Enemy Knight/TakeHit/0_Demons_of_Darkness_TakeHit_009.png" id="97_nvhr6"]
 [ext_resource type="Texture2D" uid="uid://d1tgaighc4wly" path="res://Assets/Sprites/Characters/Enemy Knight/TakeHit/0_Demons_of_Darkness_TakeHit_010.png" id="98_318bj"]
 [ext_resource type="Texture2D" uid="uid://dj7ai70rk03ya" path="res://Assets/Sprites/Characters/Enemy Knight/TakeHit/0_Demons_of_Darkness_TakeHit_011.png" id="99_k6tr1"]
+[ext_resource type="PackedScene" uid="uid://dcw6qo4ahexq" path="res://Scenes/Characters/Enemies/enemy_state_machine.tscn" id="100_vnii7"]
+[ext_resource type="Script" uid="uid://dkeiujj75jec" path="res://Scripts/Characters/Enemies/EnemyIdleState.gd" id="101_k363q"]
 
 [sub_resource type="Animation" id="Animation_fv64f"]
 resource_name = "Attack"
@@ -233,8 +236,12 @@ _data = {
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_288wt"]
 
-[node name="Enemy" type="CharacterBody3D"]
+[node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("sprite_3d_node", "character_animation_node", "character_state_machine")]
 editor_description = "Check additional settings, it can be helpful"
+script = ExtResource("1_bfsix")
+sprite_3d_node = NodePath("Sprite3D")
+character_animation_node = NodePath("AnimationPlayer")
+character_state_machine = NodePath("EnemyStateMachine")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 pixel_size = 0.0025
@@ -250,3 +257,10 @@ libraries = {
 editor_description = "Check additional settings, it can be helpful. Also how to change the Collision Shape Capsule?"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 shape = SubResource("CapsuleShape3D_288wt")
+
+[node name="EnemyStateMachine" parent="." node_paths=PackedStringArray("_current_state", "_states") instance=ExtResource("100_vnii7")]
+_current_state = NodePath("IdleState")
+_states = [NodePath("IdleState")]
+
+[node name="IdleState" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("101_k363q")
