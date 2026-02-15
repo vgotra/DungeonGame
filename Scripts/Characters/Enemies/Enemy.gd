@@ -1,5 +1,8 @@
 class_name Enemy extends Character
 
+@export_group("AI Nodes")
+@export var path_node: Path3D
+
 func _input(_event):
 	if is_inverse_movement:
 		direction = Input.get_vector(Constants.Inputs.MoveLeft, Constants.Inputs.MoveRight, Constants.Inputs.MoveBackward, Constants.Inputs.MoveForward)

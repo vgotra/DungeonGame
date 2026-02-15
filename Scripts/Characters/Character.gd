@@ -1,5 +1,6 @@
 @abstract class_name Character extends CharacterBody3D
 
+@export_group("Required Nodes")
 @export var sprite_3d_node: Sprite3D
 @export var character_animation_node: AnimationPlayer
 @export var is_inverse_movement: bool = false

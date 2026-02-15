@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=3 uid="uid://de7usddda88s0"]
+[gd_scene format=3 uid="uid://de7usddda88s0"]
 
 [ext_resource type="Script" uid="uid://bixps4ec42ilw" path="res://Scripts/Characters/Enemies/Enemy.gd" id="1_bfsix"]
 [ext_resource type="Texture2D" uid="uid://7rku125w21fe" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_001.png" id="1_wxnum"]
@@ -102,6 +102,7 @@
 [ext_resource type="Texture2D" uid="uid://dj7ai70rk03ya" path="res://Assets/Sprites/Characters/Enemy Knight/TakeHit/0_Demons_of_Darkness_TakeHit_011.png" id="99_k6tr1"]
 [ext_resource type="PackedScene" uid="uid://dcw6qo4ahexq" path="res://Scenes/Characters/Enemies/enemy_state_machine.tscn" id="100_vnii7"]
 [ext_resource type="Script" uid="uid://dkeiujj75jec" path="res://Scripts/Characters/Enemies/EnemyIdleState.gd" id="101_k363q"]
+[ext_resource type="Script" uid="uid://cnaajkf1nu1yl" path="res://Scripts/Characters/Enemies/EnemyReturnState.gd" id="103_1ucgd"]
 
 [sub_resource type="Animation" id="Animation_fv64f"]
 resource_name = "Attack"
@@ -236,31 +237,32 @@ _data = {
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_288wt"]
 
-[node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("sprite_3d_node", "character_animation_node", "character_state_machine")]
+[node name="Enemy" type="CharacterBody3D" unique_id=63712604 node_paths=PackedStringArray("sprite_3d_node", "character_animation_node", "character_state_machine")]
 editor_description = "Check additional settings, it can be helpful"
 script = ExtResource("1_bfsix")
 sprite_3d_node = NodePath("Sprite3D")
 character_animation_node = NodePath("AnimationPlayer")
 character_state_machine = NodePath("EnemyStateMachine")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=764384109]
 pixel_size = 0.0025
 texture = ExtResource("1_wxnum")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1223080470]
 editor_description = "Don't forget to enable lood for animation (Idle and Walking) and also reimport texture with lossless"
-libraries = {
-&"": SubResource("AnimationLibrary_c7fqo")
-}
+libraries/ = SubResource("AnimationLibrary_c7fqo")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=85259333]
 editor_description = "Check additional settings, it can be helpful. Also how to change the Collision Shape Capsule?"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 shape = SubResource("CapsuleShape3D_288wt")
 
-[node name="EnemyStateMachine" parent="." node_paths=PackedStringArray("_current_state", "_states") instance=ExtResource("100_vnii7")]
-_current_state = NodePath("IdleState")
-_states = [NodePath("IdleState")]
+[node name="EnemyStateMachine" parent="." unique_id=1796324635 node_paths=PackedStringArray("_current_state", "_states") instance=ExtResource("100_vnii7")]
+_current_state = NodePath("ReturnState")
+_states = [NodePath("IdleState"), NodePath("ReturnState")]
 
-[node name="IdleState" type="Node" parent="EnemyStateMachine"]
+[node name="IdleState" type="Node" parent="EnemyStateMachine" unique_id=336506847]
 script = ExtResource("101_k363q")
+
+[node name="ReturnState" type="Node" parent="EnemyStateMachine" unique_id=485876220]
+script = ExtResource("103_1ucgd")
