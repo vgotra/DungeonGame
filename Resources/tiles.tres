@@ -1,4 +1,4 @@
-[gd_resource type="MeshLibrary" load_steps=50 format=4 uid="uid://d3ouo6xh05u1k"]
+[gd_resource type="MeshLibrary" format=4 uid="uid://d3ouo6xh05u1k"]
 
 [ext_resource type="Texture2D" uid="uid://dw8gt51terqni" path="res://Assets/Models/Dungeon/gltf/floor_tile_small_dungeon_texture.png" id="1_gxa68"]
 [ext_resource type="Texture2D" uid="uid://de4qovj2qsra3" path="res://Assets/Models/Dungeon/gltf/wall_dungeon_texture.png" id="2_pgmd3"]

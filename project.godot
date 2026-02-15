@@ -8,11 +8,15 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="DungeonGame"
 run/main_scene="uid://p4rf5qs5snm4"
-config/features=PackedStringArray("4.5", "Mobile")
+config/features=PackedStringArray("4.6", "Mobile")
 config/icon="uid://1pvorbyxngs1"
 
 [display]
@@ -61,10 +65,6 @@ Dash={
 
 3d_physics/layer_1="Environment"
 3d_physics/layer_2="Player"
-
-[physics]
-
-3d/physics_engine="Jolt Physics"
 
 [rendering]
 
