@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="DungeonGame"
 run/main_scene="uid://p4rf5qs5snm4"
-config/features=PackedStringArray("4.6", "Mobile")
+config/features=PackedStringArray("4.7", "Mobile")
 config/icon="uid://1pvorbyxngs1"
 
 [display]
