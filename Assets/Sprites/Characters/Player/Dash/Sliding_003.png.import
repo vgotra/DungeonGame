@@ -17,6 +17,7 @@ dest_files=["res://.godot/imported/Sliding_003.png-8002544016cbf2e2e80cdfbe5984d
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

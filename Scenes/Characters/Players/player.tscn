@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://1b6qxpvwnte3"]
+[gd_scene format=3 uid="uid://1b6qxpvwnte3"]
 
 [ext_resource type="Texture2D" uid="uid://h6brhc04uegv" path="res://Assets/Sprites/Characters/Player/Idle/Idle Blinking_000.png" id="1_27cb7"]
 [ext_resource type="Script" uid="uid://crhwn820bnnjo" path="res://Scripts/Characters/Players/Player.gd" id="1_gcmt0"]
@@ -119,7 +119,7 @@ _data = {
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uvgfe"]
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("sprite_3d_node", "character_animation_node", "character_state_machine")]
+[node name="Player" type="CharacterBody3D" unique_id=1403486088 node_paths=PackedStringArray("sprite_3d_node", "character_animation_node", "character_state_machine")]
 editor_description = "Check additional settings, it can be helpful"
 collision_layer = 2
 floor_max_angle = 1.55334
@@ -129,36 +129,34 @@ sprite_3d_node = NodePath("Sprite3D")
 character_animation_node = NodePath("AnimationPlayer")
 character_state_machine = NodePath("PlayerStateMachine")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1798424888]
 pixel_size = 0.0025
 texture = ExtResource("1_27cb7")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1344188484]
 editor_description = "Don't forget to enable lood for animation and also reimport texture with lossless"
-libraries = {
-&"": SubResource("AnimationLibrary_lyjr2")
-}
+libraries/ = SubResource("AnimationLibrary_lyjr2")
 
-[node name="PlayerStateMachine" parent="." node_paths=PackedStringArray("_current_state", "_states") instance=ExtResource("38_wbkgl")]
+[node name="PlayerStateMachine" parent="." unique_id=1357671613 node_paths=PackedStringArray("_current_state", "_states") instance=ExtResource("38_wbkgl")]
 _current_state = NodePath("PlayerIdleState")
 _states = [NodePath("PlayerIdleState"), NodePath("PlayerMoveState"), NodePath("PlayerDashState")]
 
-[node name="PlayerIdleState" type="Node" parent="PlayerStateMachine"]
+[node name="PlayerIdleState" type="Node" parent="PlayerStateMachine" unique_id=334565879]
 script = ExtResource("40_mrrv0")
 
-[node name="PlayerMoveState" type="Node" parent="PlayerStateMachine"]
+[node name="PlayerMoveState" type="Node" parent="PlayerStateMachine" unique_id=2145667232]
 script = ExtResource("41_mrrv0")
 _move_speed = null
 
-[node name="PlayerDashState" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("dash_timer_node")]
+[node name="PlayerDashState" type="Node" parent="PlayerStateMachine" unique_id=2067532999 node_paths=PackedStringArray("dash_timer_node")]
 script = ExtResource("42_mrrv0")
 dash_timer_node = NodePath("DashTimer")
 
-[node name="DashTimer" type="Timer" parent="PlayerStateMachine/PlayerDashState"]
+[node name="DashTimer" type="Timer" parent="PlayerStateMachine/PlayerDashState" unique_id=1336821943]
 wait_time = 0.4
 one_shot = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1044283708]
 editor_description = "Check additional settings, it can be helpful. Also how to change the Collision Shape Capsule?"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 shape = SubResource("CapsuleShape3D_uvgfe")

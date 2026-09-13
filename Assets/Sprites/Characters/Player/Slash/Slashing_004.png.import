@@ -17,6 +17,7 @@ dest_files=["res://.godot/imported/Slashing_004.png-8136b5c5d0eb6f8fc65bdf238b38
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

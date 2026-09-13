@@ -17,6 +17,7 @@ dest_files=["res://.godot/imported/UI Element 1.png-0a909415c2a76d989b4def330de7
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
