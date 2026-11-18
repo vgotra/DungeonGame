@@ -1,18 +1,9 @@
 @abstract class_name PlayerStateBase extends CharacterStateBase
 
-func get_state() -> Constants.States:
-	return Constants.States.Idle
+var player_node: Player:
+	get:
+		return character_node as Player
 
-func get_animation_name() -> String:
-	return Constants.Animations.None
-
-func set_state_ready(state: bool):
-	set_physics_process(state) # Can be improved if needed
-	set_process_input(state)
-
-func process_notification(what: int):
-	if what == Constants.Notifications.EnterState:
-		character_node.character_animation_node.play(get_animation_name())
-		set_state_ready(true)
-	elif what == Constants.Notifications.ExitState:
-		set_state_ready(false)
+func set_state_active(active: bool) -> void:
+	super.set_state_active(active)
+	set_process_unhandled_input(active)

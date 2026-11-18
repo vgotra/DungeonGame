@@ -1,27 +1,22 @@
-class_name Constants #TODO: Refactor later, split into multiple files
+class_name Constants
 
-const Animations = {
-    None = StringName(""),
-    Idle = StringName("Idle"),
-    Move = StringName("Move"),
-    Dash = StringName("Dash")
+const Animations := {
+	None = &"",
+	Idle = &"Idle",
+	Move = &"Move",
+	Dash = &"Dash",
 }
 
-const Inputs = {
-    MoveLeft = StringName("MoveLeft"),
-    MoveRight = StringName("MoveRight"),
-    MoveForward = StringName("MoveForward"),
-    MoveBackward = StringName("MoveBackward"),
-    Dash = StringName("Dash")
-}
-
-enum Notifications { # Be careful with system notification int values
-    EnterState = 4001,
-    ExitState = 4002
+const Inputs := {
+	MoveLeft = &"MoveLeft",
+	MoveRight = &"MoveRight",
+	MoveForward = &"MoveForward",
+	MoveBackward = &"MoveBackward",
+	Dash = &"Dash",
 }
 
 enum States {
-    Idle,
-    Move,
-    Dash
+	Idle,
+	Move,
+	Dash,
 }

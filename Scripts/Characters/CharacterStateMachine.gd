@@ -3,18 +3,26 @@
 @export var _current_state: CharacterStateBase
 @export var _states: Array[CharacterStateBase]
 
-func _ready():
-	if _current_state == null:
-		push_error("Current state is null")
-	if _states == null or _states.size() == 0:
+func initialize(character: Character) -> void:
+	if _states.is_empty():
 		push_error("States are not properly configured")
 		return
-	_current_state.notification(Constants.Notifications.EnterState)
-
-func switch_state(state_value: Constants.States):
 	for state in _states:
-		if state.get_state() == state_value:
-			_current_state.notification(Constants.Notifications.ExitState)
+		if state != null:
+			state.initialize(character)
+	if _current_state == null:
+		push_error("Current state is null")
+		return
+	_current_state.enter_state()
+
+func switch_state(state_value: Constants.States) -> void:
+	if _current_state != null and _current_state.get_state() == state_value:
+		return
+	for state in _states:
+		if state != null and state.get_state() == state_value:
+			if _current_state != null:
+				_current_state.exit_state()
 			_current_state = state
-			_current_state.notification(Constants.Notifications.EnterState)
-			break
+			_current_state.enter_state()
+			return
+	push_warning("State %s not found in %s" % [state_value, name])

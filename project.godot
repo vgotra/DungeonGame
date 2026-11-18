@@ -17,11 +17,7 @@ config/icon="uid://1pvorbyxngs1"
 
 [display]
 
-window/vsync/vsync_mode=0
-
-[dotnet]
-
-project/assembly_name="DungeonGame"
+window/vsync/vsync_mode=1
 
 [editor]
 
@@ -120,7 +116,7 @@ Dash={
 "events": [Object(InputEventKey,
 "resource_local_to_scene": false,
 "resource_name": "",
-"device": 0,
+"device": -1,
 "window_id": 0,
 "alt_pressed": false,
 "shift_pressed": false,
@@ -141,11 +137,12 @@ Dash={
 
 3d_physics/layer_1="Environment"
 3d_physics/layer_2="Player"
+3d_physics/layer_3="Enemy"
 
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
-anti_aliasing/quality/msaa_2d=3
-anti_aliasing/quality/msaa_3d=3
-anti_aliasing/quality/screen_space_aa=2
-anti_aliasing/quality/use_taa=true
+anti_aliasing/quality/msaa_2d=2
+anti_aliasing/quality/msaa_3d=2
+anti_aliasing/quality/screen_space_aa=0
+anti_aliasing/quality/use_taa=false

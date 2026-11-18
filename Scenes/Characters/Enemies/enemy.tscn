@@ -135,18 +135,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("31_og6ks"), ExtResource("32_ual6v"), ExtResource("33_qiobn"), ExtResource("34_rglxb"), ExtResource("35_ecgvf"), ExtResource("36_huttr"), ExtResource("37_y8cyi"), ExtResource("38_vsvvl"), ExtResource("39_yvakf"), ExtResource("40_7mk3p"), ExtResource("41_fnt4a"), ExtResource("42_ei0pa"), ExtResource("43_26gw0"), ExtResource("44_xo72g"), ExtResource("45_64638"), ExtResource("46_0qg01"), ExtResource("47_8hy1b"), ExtResource("48_o38gk"), ExtResource("49_ajdw3"), ExtResource("50_ypwmc"), ExtResource("51_y1h22"), ExtResource("52_4mqul"), ExtResource("53_uoups"), ExtResource("54_otrp8"), ExtResource("55_fxhng"), ExtResource("56_3i8rg"), ExtResource("57_06bn5"), ExtResource("58_n2sdi"), ExtResource("59_dpok0"), ExtResource("60_f3mw1"), ExtResource("61_b102i"), ExtResource("62_niub3"), ExtResource("63_hc2na")]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite3D:pixel_size")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.424242, 0.545455),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0025, 0.0025, 0.0075]
-}
 
 [sub_resource type="Animation" id="Animation_wxnum"]
 resource_name = "Idle"
@@ -194,19 +182,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_wxnum")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite3D:pixel_size")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0025]
+"values": [ExtResource("2_cjlqx")]
 }
 
 [sub_resource type="Animation" id="Animation_0a76q"]
@@ -239,6 +215,10 @@ _data = {
 
 [node name="Enemy" type="CharacterBody3D" unique_id=63712604 node_paths=PackedStringArray("sprite_3d_node", "character_animation_node", "character_state_machine")]
 editor_description = "Check additional settings, it can be helpful"
+collision_layer = 4
+collision_mask = 7
+floor_max_angle = 1.55334
+floor_snap_length = 0.2
 script = ExtResource("1_bfsix")
 sprite_3d_node = NodePath("Sprite3D")
 character_animation_node = NodePath("AnimationPlayer")
@@ -246,7 +226,8 @@ character_state_machine = NodePath("EnemyStateMachine")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=764384109]
 pixel_size = 0.0025
-texture = ExtResource("1_wxnum")
+alpha_cut = 2
+texture = ExtResource("2_cjlqx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1223080470]
 editor_description = "Don't forget to enable lood for animation (Idle and Walking) and also reimport texture with lossless"

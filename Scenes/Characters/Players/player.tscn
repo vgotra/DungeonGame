@@ -44,8 +44,8 @@
 
 [sub_resource type="Animation" id="Animation_mf3wh"]
 resource_name = "Dash"
-loop_mode = 1
-step = 0.166667
+length = 0.4
+step = 0.0666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -53,7 +53,7 @@ tracks/0/path = NodePath("Sprite3D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333),
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("32_gelu2"), ExtResource("33_uvgfe"), ExtResource("34_e5xbx"), ExtResource("35_8uivy"), ExtResource("36_yfcdn"), ExtResource("37_68bc3")]
@@ -70,7 +70,7 @@ tracks/0/path = NodePath("Sprite3D:texture")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0555556, 0.110436, 0.166667, 0.222222, 0.277778, 0.333333, 0.388889, 0.444444, 0.5, 0.555556, 0.611111, 0.666667, 0.722222, 0.777778, 0.833333, 0.888889, 0.944881),
+"times": PackedFloat32Array(0, 0.0555556, 0.111111, 0.166667, 0.222222, 0.277778, 0.333333, 0.388889, 0.444444, 0.5, 0.555556, 0.611111, 0.666667, 0.722222, 0.777778, 0.833333, 0.888889, 0.944444),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("1_27cb7"), ExtResource("2_7x37g"), ExtResource("3_pr2lv"), ExtResource("4_cvakg"), ExtResource("5_othne"), ExtResource("6_a7o8c"), ExtResource("7_23420"), ExtResource("8_p6wb4"), ExtResource("9_y3fvr"), ExtResource("10_roksr"), ExtResource("11_qn1vu"), ExtResource("12_61squ"), ExtResource("13_nafmd"), ExtResource("14_46w32"), ExtResource("15_eiaiy"), ExtResource("16_cflke"), ExtResource("17_4yec0"), ExtResource("18_me3gr")]
@@ -122,6 +122,7 @@ _data = {
 [node name="Player" type="CharacterBody3D" unique_id=1403486088 node_paths=PackedStringArray("sprite_3d_node", "character_animation_node", "character_state_machine")]
 editor_description = "Check additional settings, it can be helpful"
 collision_layer = 2
+collision_mask = 5
 floor_max_angle = 1.55334
 floor_snap_length = 0.2
 script = ExtResource("1_gcmt0")
@@ -131,6 +132,7 @@ character_state_machine = NodePath("PlayerStateMachine")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1798424888]
 pixel_size = 0.0025
+alpha_cut = 2
 texture = ExtResource("1_27cb7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1344188484]
@@ -146,7 +148,6 @@ script = ExtResource("40_mrrv0")
 
 [node name="PlayerMoveState" type="Node" parent="PlayerStateMachine" unique_id=2145667232]
 script = ExtResource("41_mrrv0")
-_move_speed = null
 
 [node name="PlayerDashState" type="Node" parent="PlayerStateMachine" unique_id=2067532999 node_paths=PackedStringArray("dash_timer_node")]
 script = ExtResource("42_mrrv0")
